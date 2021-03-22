@@ -1,0 +1,63 @@
+name: "LTE光照度设备模板"
+manufacturer: "IOTech"
+model: "1"
+labels:
+- "device-LTE-example"
+description: "a light device"
+
+deviceResources:
+-
+  name: "Value"
+  description: "Get light value"
+  properties:
+    value:
+      { type: "INT64", readWrite: "R", defaultValue: "0.00", minimum: "0.00", maximum: "65535.00"}
+    units:
+      { type: "String", readWrite: "R", defaultValue: "" }
+-
+  name: "Light"
+  description: "Example of put mothod"
+  properties:
+    value:
+      { type: "String", size: "0", readWrite: "W" ,scale: "", offset: "", base: ""  }
+    units:
+      { type: "String", readWrite: "R", defaultValue: "" }
+
+deviceCommands:
+-
+  name: "Get_Value"
+  get:
+  - { operation: "get", object: "Value", property: "value", parameter: "Get_Value" }
+-
+  name: "Put_Light"
+  set:
+  - { index: "1", operation: "set", deviceResource: "Light"}
+
+coreCommands:
+-
+  name: "Get_Value"
+  get:
+    path: "/api/v1/device/{deviceId}/Get_Value"
+    responses:
+    -
+      code: "200"
+      description: ""
+      expectedValues: ["Value"]
+    -
+      code: "503"
+      description: "service unavailable"
+      expectedValues: []
+-
+  name: "Put_Light"
+  put:
+    path: "/api/v1/device/{deviceId}/Put_Light"
+    parameterNames: ["Light"]
+    responses:
+      -
+        code: "204"
+        description: "set the ligth"
+        expectedValues: []
+      -
+        code: "500"
+        description: "service unavailable"
+        expectedValues: []
