@@ -18,5 +18,5 @@ const (
 
 func main() {
 	d := driver.NewProtocolDriver()
-	startup.Bootstrap(serviceName, device_lte_go.Version, d)
+	startup.Bootstrap(serviceName, device_lte.Version, d)
 }

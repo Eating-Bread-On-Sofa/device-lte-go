@@ -4,6 +4,7 @@ Port = 50001
 ConnectRetries = 3
 Labels = []
 OpenMsg = "device lte started"
+MaxResultCount = 50000
 Timeout = 5000
 EnableAsyncReadings = true
 AsyncBufferSize = 16
@@ -50,7 +51,6 @@ Level = "DEBUG"
   MaxCmdValueLen = 256
   RemoveCmd = ""
   RemoveCmdArgs = ""
-  ProfilesDir = "./res"
 
 # Pre-define Devices
 # [[DeviceList]]

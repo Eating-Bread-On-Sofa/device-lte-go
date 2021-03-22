@@ -1,7 +1,7 @@
 [Service]
-Host = "device-random"
+Host = "device-lte-go"
 Port = 50001
-ConnectRetries = 3
+ConnectRetries = 20
 Labels = []
 OpenMsg = "device lte started"
 Timeout = 5000
@@ -52,4 +52,3 @@ LogLevel = "INFO"
   MaxCmdValueLen = 256
   RemoveCmd = ""
   RemoveCmdArgs = ""
-  ProfilesDir = "./res"
